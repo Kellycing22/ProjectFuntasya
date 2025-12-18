@@ -15,7 +15,7 @@ main{
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    overflow: hidden;
+    overflow: visible;
     transition: 0.5s;
 }
 
@@ -31,3 +31,32 @@ main{
     transition: 1s;
 }
 
+.banner.active{
+    width: 93%;
+    position: relative;
+    transition: 1s;
+}
+
+section {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 100vh;
+    padding: 0 30px 0 30px;
+    bottom: 0;
+    opacity: 0;
+    transition: ease-in-out 1s;
+    transform-origin: bottom;
+    z-index: 1000;
+}
+
+section::-webkit-scrollbar {
+    display: none;
+}
+
+section.active {
+    top: 100px;
+    height: auto;
+    opacity: 1;
+    overflow-y: visible;
+}

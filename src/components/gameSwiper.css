@@ -1,0 +1,156 @@
+.gameSwiper {
+    width: 100%;
+    padding: 50px 0 80px;
+}
+
+.gameSwiper .swiper-slide {
+    width: 450px;
+    height: 300px;
+}
+
+/* Slide yang tidak aktif (samping) - lebih gelap */
+.gameSwiper .swiper-slide:not(.swiper-slide-active) .gameSlider {
+    filter: brightness(0.4);
+}
+
+/* Slide yang aktif (tengah) - terang */
+.gameSwiper .swiper-slide-active .gameSlider {
+    filter: brightness(1);
+}
+
+.gameSlider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.gameSlider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Overlay gelap di belakang konten */
+.gameSlider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+}
+
+/* Konten di atas overlay */
+.gameSlider .content {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    z-index: 1000;
+}
+
+.gameSlider .content h2 {
+    font-size: 3.5rem;
+    font-family: "Bauhaus 93";
+}
+
+.gameSlider .content p {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    color: #ebebeb;
+}
+
+.gameSlider .content .buttons {
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.gameSlider .content .buttons a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.gameSlider .content .buttons .orderBtn {
+    padding: 8px 20px;
+    background: var(--second);
+    border-radius: 10px;
+}
+
+.gameSlider .content .buttons .playBtn{
+        height: 50px;
+        width: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+}
+
+
+.gameSwiper .swiper-button-next,
+.gameSwiper .swiper-button-prev {
+    position: absolute !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(20px);
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    bottom: 0px !important;
+    top: auto !important; /* Override default top positioning */
+    margin-top: 0 !important; /* Remove default margin */
+    color: white !important; /* Untuk warna panah */
+    transition: all 0.3s ease;
+}
+
+.gameSwiper .swiper-button-next::after,
+.gameSwiper .swiper-button-prev::after {
+    font-size: 1.2rem !important;
+    color: white !important;
+}
+
+.gameSwiper .swiper-button-next:hover,
+.gameSwiper .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: scale(1.1);
+}
+
+.playBtn .play{
+    display: block;
+}
+
+.playBtn .pause{
+    display: none;
+}
+
+.playBtn.active .play{
+    display: none;
+}
+
+.playBtn.active .pause{
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .gameSwiper .swiper-slide {
+        width: 320px;
+        height: 220px;
+    }
+}
+
