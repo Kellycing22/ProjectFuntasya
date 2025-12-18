@@ -14,7 +14,7 @@ function Main() {
   };
 
   const fetchData = () => {
-      fetch('http://localhost:5173/api/gamesData.json')
+      fetch('/api/gamesData.json')
       .then(response => response.json())
       .then(data => {
         setGames(data)
